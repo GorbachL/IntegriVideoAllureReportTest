@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
+import steps.LoginSteps;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,6 +12,7 @@ public class BaseTest {
 
     WebDriver driver;
     WebDriverWait wait;
+    LoginSteps stepsForLogin;
 
     @BeforeMethod
     public void setUp() {
@@ -20,6 +22,7 @@ public class BaseTest {
         wait = new WebDriverWait(driver, 20);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        stepsForLogin = new LoginSteps(driver);
     }
 
 //    @AfterMethod

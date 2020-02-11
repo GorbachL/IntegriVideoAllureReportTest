@@ -6,18 +6,19 @@ import pages.IntegriChartPage;
 
 public class SendMessageViaButtonSteps {
 
-    private IntegriChartPage page;
+    private IntegriChartPage chartPage;
 
     public SendMessageViaButtonSteps(WebDriver driver) {
-        page = new IntegriChartPage(driver);
+
+        chartPage = new IntegriChartPage(driver);
     }
 
-    @Step("Send {message} via button")
+    @Step("Send {message}")
     public SendMessageViaButtonSteps validateMessageSending(String message) {
-        page.openPage();
-        page.sendMessage(message);
-        page.clickSendMessageButton();
-        page.messageShouldContainText(message, 1);
+        chartPage.openPage();
+        chartPage.sendMessage(message);
+        chartPage.clickSendMessageButton();
+        chartPage.messageShouldContainText(message, 1);
         return this;
     }
 }
