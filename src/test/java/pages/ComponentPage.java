@@ -42,27 +42,31 @@ public class ComponentPage extends BasePage {
     }
 
     @Step("select component Type")
-    public void selectComponentType() {
+    public ComponentPage selectComponentType() {
         Select select = new Select(componentType);
         select.getOptions().get(1).click();
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 
     @Step("enter component Name")
-    public void addNameOfComponent(String name) {
+    public ComponentPage addNameOfComponent(String name) {
         componentName.sendKeys(name);
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 
     @Step("create Component")
-    public void createComponent() {
+    public ComponentPage createComponent() {
         driver.findElement(CREATE_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 
     @Step("update Component")
-    public void updateComponent() {
+    public ComponentPage updateComponent() {
         driver.findElement(UPDATE_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 }

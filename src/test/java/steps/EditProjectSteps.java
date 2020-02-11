@@ -20,9 +20,9 @@ public class EditProjectSteps {
     public void editProject() {
         projectsPage
                 .openPage()
-                .selectProjectToUpdate();
-        projectsPage.clickEditProject();
-        projectsPage.editProjectData(project);
-        projectsPage.updateProject();
+                .selectProjectToUpdate()
+                .clickEditProject()
+                .editProjectData(project)
+                .updateProject();
     }
 }

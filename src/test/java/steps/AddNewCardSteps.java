@@ -25,9 +25,8 @@ public class AddNewCardSteps {
                 .clickBilling();
         billingPage
                 .openPage()
-                .clickAddNewButton();
-        billingPage.fillInDataForCard(card);
-        billingPage.clickAddPaimentDetails();
+                .clickAddNewButton()
+                .fillInDataForCard(card)
+                .clickAddPaimentDetails();
     }
-
 }

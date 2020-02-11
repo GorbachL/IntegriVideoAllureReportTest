@@ -19,13 +19,12 @@ public class AddNewComponentSteps {
     public void addNewComponent(String nameOfComponent) {
         projectsPage
                 .openPage()
-                .selectProjectToUpdate();
-        projectsPage.clickAddNewComponent();
+                .selectProjectToUpdate()
+                .clickAddNewComponent();
         componentPage
                 .openPage()
-                .selectComponentType();
-        componentPage.addNameOfComponent(nameOfComponent);
-        componentPage.createComponent();
+                .selectComponentType()
+                .addNameOfComponent(nameOfComponent)
+                .createComponent();
     }
-
 }

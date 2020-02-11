@@ -21,10 +21,11 @@ public class CreateNewProjectSteps {
     public void creationOfNewProject() {
         projectsPage.openPage();
         int projectCountBefore = projectsPage.projectCount();
-        projectsPage.clickAddProject();
-        projectsPage.fillInNewProject(project);
-        projectsPage.createNewProject();
-        projectsPage.openPage();
+        projectsPage
+                .clickAddProject()
+                .fillInNewProject(project)
+                .createNewProject()
+                .openPage();
         int projectCountAfter = projectsPage.projectCount();
         assertEquals(projectCountAfter, projectCountBefore + 1, "New project was not created");
     }

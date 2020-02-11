@@ -72,9 +72,10 @@ public class ProjectsPage extends BasePage {
     }
 
     @Step("click add Project")
-    public void clickAddProject() {
+    public ProjectsPage clickAddProject() {
         driver.findElement(ADD_PROJECT).click();
         isPageOpened(PROJECT_CREATE);
+        return this;
     }
 
     public int projectCount() {
@@ -83,19 +84,21 @@ public class ProjectsPage extends BasePage {
     }
 
     @Step("fill in data of a New Project")
-    public void fillInNewProject(Project project) {
+    public ProjectsPage fillInNewProject(Project project) {
         projectNameInput.sendKeys(project.getProjectName());
         projectDescriptionInput.sendKeys(project.getProjectDescription());
         driver.findElement(PROJECT_DOMAIN_INPUT).sendKeys(project.getDomains());
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 
-    public void createNewProject() {
+    public ProjectsPage createNewProject() {
         projectCreateButton.click();
+        return this;
     }
 
     @Step("update project")
-    public void editProjectData(Project project) {
+    public ProjectsPage editProjectData(Project project) {
         projectNameInput.clear();
         projectNameInput.sendKeys(project.getProjectName());
         projectDescriptionInput.clear();
@@ -103,25 +106,29 @@ public class ProjectsPage extends BasePage {
         driver.findElement(PROJECT_DOMAIN_INPUT).clear();
         driver.findElement(PROJECT_DOMAIN_INPUT).sendKeys(project.getDomains());
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 
     @Step("select project to update")
-    public void selectProjectToUpdate() {
+    public ProjectsPage selectProjectToUpdate() {
         List<WebElement> projects = driver.findElements(ACTIVE_PROJECTS);
         projects.get(1).click();
         isPageOpened(ADD_NEW_COMPONENT);
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 
     @Step("click on Edit button")
-    public void clickEditProject() {
+    public ProjectsPage clickEditProject() {
         driver.findElement(EDIT_PROJECT).click();
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 
     @Step("click on Update Project")
-    public void updateProject() {
+    public ProjectsPage updateProject() {
         projectUpdateButton.click();
+        return this;
     }
 
     public void removeDomain() {
@@ -130,8 +137,9 @@ public class ProjectsPage extends BasePage {
     }
 
     @Step("click on add component")
-    public void clickAddNewComponent() {
+    public ProjectsPage clickAddNewComponent() {
         driver.findElement(ADD_NEW_COMPONENT).click();
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 }

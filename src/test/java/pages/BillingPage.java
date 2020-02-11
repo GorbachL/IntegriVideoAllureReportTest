@@ -47,32 +47,36 @@ public class BillingPage extends BasePage {
     }
 
     @Step("click on Add new button")
-    public void clickAddNewButton() {
+    public BillingPage clickAddNewButton() {
         driver.findElement(ADD_NEW_BUTTON).click();
         isPageOpened(ADD_BUTTON);
         wait.until(ExpectedConditions.elementToBeClickable(ADD_BUTTON));
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 
     @Step("fill in card data")
-    public void fillInDataForCard(Card card) {
+    public BillingPage fillInDataForCard(Card card) {
         cardNumberInput.sendKeys(card.getCardNumber());
         cardMonthInput.sendKeys(card.getCardMonth());
         cardYearInput.sendKeys(card.getCardYear());
         cardHolderInput.sendKeys(card.getCardHolder());
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 
     @Step("save card")
-    public void clickAddPaimentDetails() {
+    public BillingPage clickAddPaimentDetails() {
         driver.findElement(ADD_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 
     @Step("remove card")
-    public void removeCard() {
+    public BillingPage removeCard() {
         driver.findElement(REMOVE_BUTTON).click();
         AllureUtils.takeScreenshot(driver);
+        return this;
     }
 
 }
