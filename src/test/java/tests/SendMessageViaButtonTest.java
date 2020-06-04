@@ -7,9 +7,9 @@ import io.qameta.allure.TmsLink;
 import org.testng.annotations.Test;
 import steps.SendMessageViaButtonSteps;
 
-public class SendMessageViaButtonTest extends BaseTest{
+public class SendMessageViaButtonTest extends BaseTest {
 
-    SendMessageViaButtonSteps steps;
+    private SendMessageViaButtonSteps steps;
 
     @Test(description = "Send message via button")
     @Description("Validate sending message via button")
@@ -18,7 +18,6 @@ public class SendMessageViaButtonTest extends BaseTest{
     @TmsLink("Link for TMS")
     public void validateMessageSendingTest() {
         String message = "Отправить любое сообщение используя Кнопку";
-
         steps = new SendMessageViaButtonSteps(driver);
         steps.validateMessageSending(message);
     }
